@@ -2,6 +2,7 @@ const express = require("express")
 const https = require("https")
 const app = express()
 const bodyParser = require("body-parser")
+const { initParams } = require("request")
 
 
 app.use(bodyParser.urlencoded({extended: true}))
@@ -12,7 +13,6 @@ app.use(express.static("public"))
 app.get('/', function(req,res){
     res.sendFile(__dirname + "/signup.html")
 })
-
 
 app.post('/', function(req,res){
 
@@ -75,10 +75,32 @@ app.listen(process.env.PORT || 3000, function(){
 })
 
 
-
 //API Key - 99737406ffc2ca70e65b2e711df3c2b6-us1
 //List/audience id - a0f71ff49f
  
 
 //Procfile tells heroku where to start, as in the main file, i.e app.js
+
+
+//deploy commands:
+// heroku create (make sure you are logged in)
+
+
+//git commands:
+
+// - setting up local repository
+// git init 
+// git add . 
+// git commit -m "message"
+// git push heroku master
+// heroku open
+
+
+// - pushing files to the remote repository
+// git push -u origin master 'add link'
+
+// Extras - 
+// git checkout 'filename' - rolls back the file version to the previously saved version
+// git log - to check the previous commits
+// git rm --cached -r . - remove all the files in the staging area
 
